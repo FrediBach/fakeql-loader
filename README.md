@@ -1,6 +1,6 @@
 # fakeql-loader
 
-A Webpack loader for FakeQL
+A Webpack loader for [FakeQL](https://fakeql.com)
 
 ## Install
 
