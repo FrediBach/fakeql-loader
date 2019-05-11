@@ -24,8 +24,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        // make all files ending in .fakeql.json use the `fakeql-loader`
-        test: /\.fakeql.json$/,
+        // make all files ending in .fakeql use the `fakeql-loader`
+        test: /\.fakeql$/,
         loader: 'fakeql-loader',
       },
     ],
@@ -35,22 +35,24 @@ module.exports = {
 
 ```js
 // index.js
-const blogAPIhash = require('./blog-sample-data.fakeql.json');
+const blogAPIhash = require('./extended-blog-sample-data.fakeql');
 // or, in ES6
-// import blogAPIhash from './blog-sample-data.fakeql.json'
+// import blogAPIhash from './extended-blog-sample-data.fakeql'
 
 console.log(blogAPIendpoint); // 'b3b930ee57add5b17d2c9dd503029072'
 ```
 
+Where your extended JSON is saved in a file with the name `extended-blog-sample-data.fakeql`.
+
 ### Usage with require statement loader prefix
 
 ```js
-const blogAPIhash = require('fakeql-loader!./blog-sample-data.fakeql.json');
+const blogAPIhash = require('fakeql-loader!./extended-blog-sample-data.fakeql');
 
 console.log(appConfig); // 'b3b930ee57add5b17d2c9dd503029072'
 ```
 
-Both ways you get the hash of the API back, so you than can use it for example like this (with Apollo):
+Both ways you get the hash of the API back (or false if anything fails), so you than can use it for example like this (with Apollo):
 
 ```js
 const client = new ApolloClient({
