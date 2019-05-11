@@ -1,17 +1,21 @@
-import { getOptions } from 'loader-utils';
-import validateOptions from 'schema-utils';
-import md5 from 'md5';
-import axios from 'axios';
-import urlStatusCode from 'url-status-code';
+'use strict';
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var loaderUtils = require('loader-utils');
+var validateOptions = _interopDefault(require('schema-utils'));
+var md5 = _interopDefault(require('md5'));
+var axios = _interopDefault(require('axios'));
+var urlStatusCode = _interopDefault(require('url-status-code'));
 
 const schema = {
     "type": "object",
     "additionalProperties": false
 };
 
-export default function loader(source) {
+function loader(source) {
     let callback = this.async();
-    const options = getOptions(this) || {};
+    const options = loaderUtils.getOptions(this) || {};
     validateOptions(schema, options, 'FakeQL Loader');
     
     let hash = '';
@@ -46,9 +50,11 @@ export default function loader(source) {
                 console.log('FakeQL: Deployment found');
                 callback(null, hash);
             }
-        })
+        });
     } else {
         console.log('FakeQL error: No hash or valid JSON');
         callback(null, '');
     }
 }
+
+module.exports = loader;

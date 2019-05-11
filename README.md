@@ -35,7 +35,7 @@ module.exports = {
 
 ```js
 // index.js
-var blogAPIhash = require('./blog-sample-data.fakeql.json');
+const blogAPIhash = require('./blog-sample-data.fakeql.json');
 // or, in ES6
 // import blogAPIhash from './blog-sample-data.fakeql.json'
 
@@ -45,7 +45,7 @@ console.log(blogAPIendpoint); // 'b3b930ee57add5b17d2c9dd503029072'
 ### Usage with require statement loader prefix
 
 ```js
-var blogAPIhash = require('fakeql-loader!./blog-sample-data.fakeql.json');
+const blogAPIhash = require('fakeql-loader!./blog-sample-data.fakeql.json');
 
 console.log(appConfig); // 'b3b930ee57add5b17d2c9dd503029072'
 ```

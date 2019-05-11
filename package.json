@@ -2,9 +2,13 @@
   "name": "fakeql-loader",
   "version": "0.0.1",
   "description": "A Webpack loader for FakeQL",
-  "main": "index.js",
+  "source": "src/index.js",
+  "main": "dist/fakql-loader.js",
+  "umd:main": "dist/fakql-loader.umd.js",
+  "module": "dist/fakql-loader.m.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup watch"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,17 @@
   "bugs": {
     "url": "https://github.com/FrediBach/fakeql-loader/issues"
   },
-  "homepage": "https://github.com/FrediBach/fakeql-loader#readme"
+  "homepage": "https://github.com/FrediBach/fakeql-loader#readme",
+  "devDependencies": {
+    "rollup-plugin-json": "^4.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "blowson": "^1.3.3",
+    "g": "^2.0.1",
+    "loader-utils": "^1.2.3",
+    "md5": "^2.2.1",
+    "schema-utils": "^1.0.0",
+    "url-status-code": "^1.1.1"
+  }
 }
