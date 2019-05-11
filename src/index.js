@@ -23,7 +23,7 @@ export default function loader(source) {
         hash = md5(JSON.stringify(parsedData));
     } catch(error) {
         console.log(error);
-        callback(null, 'export default { hash: false }');
+        callback(null, 'export default false');
     }
 
     if (hash !== '' && typeof parsedData === 'object') {
@@ -36,19 +36,19 @@ export default function loader(source) {
                 axios.post('https://fakeql.com/api/deploy.js', { "source": {}, "extended": parsedData })
                     .then(function (response) {
                         console.log('New FakeQL deployment created: https://fakeql.com/graphql/' + response.data.hash);
-                        callback(null, `export default { hash: "${response.data.hash}" }`);
+                        callback(null, `export default "${response.data.hash}"`);
                     })
                     .catch(function (error) {
                         console.log('Deployment failed');
-                        callback(null, 'export default { hash: false }');
+                        callback(null, 'export default false');
                     });
             } else {
                 console.log('FakeQL: Deployment found');
-                callback(null, `export default { hash: "${hash}" }`);
+                callback(null, `export default "${hash}"`);
             }
         })
     } else {
         console.log('FakeQL error: No hash or valid JSON');
-        callback(null, 'export default { hash: false }');
+        callback(null, 'export default false');
     }
 }
