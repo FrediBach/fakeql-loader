@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "A Webpack loader for FakeQL",
   "source": "src/index.js",
-  "main": "dist/fakql-loader.js",
-  "umd:main": "dist/fakql-loader.umd.js",
-  "module": "dist/fakql-loader.m.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup watch"
