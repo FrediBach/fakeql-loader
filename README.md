@@ -10,6 +10,8 @@ $ npm install fakeql-loader --save-dev
 
 ## Usage
 
+This loader is made for already extended JSON files. Extending on the fly makes no sense with a Webpack loader, as the output would be different each run. You can extend your JSON directly on FakeQL or locally with Blowson. The loader will make a new deployment and return a new hash on every change of the JSON file. To make sure no other loaders interfer with this process, we've choosen the `.fakeql` file extension.
+
 ### Usage with preconfigured loader
 
 **webpack.config.js**
@@ -62,4 +64,4 @@ const client = new ApolloClient({
 
 ## Behaviour
 
-The FakeQL Webpack loader will automatically create a new deployment of your sample data whenever the sample file changes.
+The FakeQL Webpack loader will automatically create a new deployment of your sample data whenever the sample file changes and return the hash of the new deployment.

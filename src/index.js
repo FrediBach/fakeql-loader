@@ -19,7 +19,11 @@ export default function loader(source) {
 
     // Check if data is a JSON and get the hash of it:
     try {
-        parsedData = JSON.parse(source);
+        if (typeof source === 'string') {
+            parsedData = JSON.parse(source);
+        } else {
+            parsedData = source;
+        }
         hash = md5(JSON.stringify(parsedData));
     } catch(error) {
         console.log(error);
