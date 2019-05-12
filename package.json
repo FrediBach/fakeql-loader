@@ -1,6 +1,6 @@
 {
   "name": "fakeql-loader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Webpack loader for FakeQL",
   "source": "src/index.js",
   "main": "dist/index.js",
